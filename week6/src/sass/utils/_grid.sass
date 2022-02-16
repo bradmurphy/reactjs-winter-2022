@@ -1,0 +1,63 @@
+@use 'breakpoints'
+@use 'layout'
+
+$grid-column-gap-mobile: 24px
+$grid-column-gap-tablet: 24px
+$grid-column-gap-laptop: 44px
+$grid-column-gap-desktop: 64px
+
+=gap
+  +breakpoints.mobile
+    grid-gap: $grid-column-gap-mobile
+  +breakpoints.tablet
+    grid-gap: $grid-column-gap-tablet
+  +breakpoints.laptop
+    grid-gap: $grid-column-gap-laptop
+  +breakpoints.desktop
+    grid-gap: $grid-column-gap-desktop
+
+=variables
+  +breakpoints.mobile
+    --grid-column-gap: #{$grid-column-gap-mobile}
+  +breakpoints.tablet
+    --grid-column-gap: #{$grid-column-gap-tablet}
+  +breakpoints.laptop
+    --grid-column-gap: #{$grid-column-gap-laptop}
+  +breakpoints.desktop
+    --grid-column-gap: #{$grid-column-gap-desktop}
+
+=column-gap
+  +breakpoints.mobile
+    column-gap: $grid-column-gap-mobile
+  +breakpoints.tablet
+    column-gap: $grid-column-gap-tablet
+  +breakpoints.laptop
+    column-gap: $grid-column-gap-laptop
+  +breakpoints.desktop
+    column-gap: $grid-column-gap-desktop
+
+=container
+  +layout.container
+  display: grid
+  +variables
+  column-gap: var(--grid-column-gap)
+  +breakpoints.mobile
+    grid-template-columns: repeat(4, 1fr)
+  +breakpoints.tablet
+    grid-template-columns: repeat(4, 1fr)
+  +breakpoints.laptop
+    grid-template-columns: repeat(12, 1fr)
+  +breakpoints.desktop
+    grid-template-columns: repeat(12, 1fr)
+
+=span($value)
+  grid-column: span $value
+
+=range($start, $end)
+  grid-column-start: #{$start}
+  grid-column-end: span #{$end - $start + 1}
+
+=reversed
+  direction: rtl
+  & > *
+    direction: ltr

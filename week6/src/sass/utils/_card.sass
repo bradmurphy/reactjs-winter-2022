@@ -1,0 +1,49 @@
+@use './animation'
+@use './breakpoints'
+@use './color'
+@use './flex'
+
+=card($max-width: 319px)
+  max-width: $max-width
+  border-radius: 36px
+  box-shadow: 0px 12px 34px rgba(32, 52, 89, 0.25)
+  overflow: hidden
+
+=price
+  +flex.center
+  flex-wrap: wrap
+  --localized-price-color: #{color.$blue-500}
+  --localized-price-font-size: 120px
+  --localized-price-font-weight: 600
+  --localized-price-line-height: 85px
+  --localized-price-letter-spacing: -4.2px
+  --localized-price-currency-font-size: 70px
+  --localized-price-literal-font-size: 70px
+  grid-gap: 6px
+  +breakpoints.lt(375px)
+    --localized-price-font-size: 90px
+    --localized-price-currency-font-size: 52px
+    --localized-price-literal-font-size: 52px
+
+  html:not([lang='en']) &
+    +breakpoints.mobile
+      --localized-price-font-size: 90px
+      --localized-price-currency-font-size: 52px
+      --localized-price-literal-font-size: 52px
+    +breakpoints.lt(375px)
+      --localized-price-font-size: 60px
+      --localized-price-currency-font-size: 40px
+      --localized-price-literal-font-size: 20px
+      --localized-price-line-height: 50px
+
+=price-sub
+  color: color.$blue-500
+  font-weight: 600
+  font-size: 14px
+  line-height: 18px
+  letter-spacing: 3.9px
+  margin-top: 24px
+  text-transform: uppercase
+  +breakpoints.laptop-gt
+    font-size: 20px
+    line-height: 25px

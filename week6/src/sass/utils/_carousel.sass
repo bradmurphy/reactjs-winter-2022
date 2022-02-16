@@ -1,0 +1,117 @@
+@use '../utils/animation'
+@use '../utils/breakpoints'
+@use '../utils/color'
+@use '../utils/flex'
+@use '../utils/layout'
+@use '../utils/pseudo'
+@use '../utils/type'
+
+=container
+  display: flex
+  width: 100%
+  overflow: visible
+  overflow-scrolling: touch
+  overflow-x: scroll
+  scroll-behavior: smooth
+  scroll-snap-stop: always
+  scroll-snap-type: x mandatory
+  scrollbar-width: none
+  will-change: scroll-position
+  &::-webkit-scrollbar
+    +layout.size(0)
+    display: none
+    background: transparent
+
+=slide($flex-basis: 100%)
+  box-sizing: border-box
+  scroll-snap-align: center
+  flex: 0 0 $flex-basis
+
+=controls($element, $type: "dots")
+  @if $type == "dots"
+    +flex.center
+
+    #{$element}__dot
+      +flex.center-y
+      +layout.size(20px)
+      --dots-foreground-color: #{color.$white}
+      cursor: pointer
+      +breakpoints.laptop-gt
+        --dots-foreground-color: #{color.$grey-900}
+      +pseudo.before
+        +layout.size(8px)
+        border-radius: 50%
+        border: 1px solid var(--dots-foreground-color)
+        transition: border .3s ease, background .3s ease
+      &--active
+        +pseudo.before
+          background: var(--dots-foreground-color)
+      
+  @else if $type == "links"
+    +flex.center
+    box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 4px rgba(60, 64, 67, 0.25)
+    border-radius: 24px
+    height: 48px
+    overflow: hidden
+    justify-content: flex-start
+    width: calc(100% - 48px)
+    +breakpoints.laptop-gt
+      box-shadow: none
+      border-radius: 0
+      margin-left: 0
+      width: auto
+
+
+    #{$element}__link
+      +type.headline-6
+      border-bottom: 2px solid transparent
+      color: color.$grey-600
+      cursor: pointer
+      padding: 12px 16px
+      white-space: nowrap
+      text-align: center
+      transition: color .3s ease
+      transition: border .3s ease
+      +breakpoints.laptop-gt
+        display: inline
+        font-size: 24px
+        line-height: 32px
+        padding: 0
+        margin-bottom: 4px
+
+      &--active
+        color: color.$grey-900
+        +breakpoints.laptop-gt
+          border-bottom: 2px solid color.$blue-600
+
+  @else if $type == "arrows"
+    +flex.center
+    width: 100%
+
+    #{$element}__arrow
+      +flex.center
+      +layout.size(40px)
+      background: rgba(color.$white, .6)
+      border-radius: 100%
+      cursor: pointer
+      transition: background .3s ease
+      user-select: none
+      +breakpoints.laptop-gt
+        +layout.size(64px)
+      &:hover
+        background: color.$white
+      &:focus
+        background: color.$white
+        box-shadow: 0 0 0 1px color.$blue-600
+        outline: none
+      & + &
+        margin-left: 4px
+      &--left img
+        transform: scale(-1)
+
+      img
+        height: 22px
+        width: 22px
+        +breakpoints.laptop-gt
+          height: 36px
+          width: 36px

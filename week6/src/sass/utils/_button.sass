@@ -1,0 +1,47 @@
+@use './color'
+
+=reversed
+  --button-background: transparent
+  --button-border-color: #{color.$white}
+  --button-text-color: #{color.$white}
+  &:focus,
+  &:hover,
+  &:active
+    --button-border-color: #{color.$blue-600}
+    --button-text-color: #{color.$blue-900}
+  &:focus
+    --button-background: linear-gradient(0deg, rgba(26, 115, 232, 0.12), rgba(26, 115, 232, 0.12)), #FFFFFF
+    border-width: 2px
+  &:hover
+    --button-background: linear-gradient(0deg, rgba(26, 115, 232, 0.04), rgba(26, 115, 232, 0.04)), #FFFFFF
+  &:active
+    --button-background: linear-gradient(0deg, rgba(26, 115, 232, 0.1), rgba(26, 115, 232, 0.1)), #FFFFFF
+
+=inverted
+  --button-border-color: #{color.$grey-900}
+  --button-text-color: #{color.$grey-900}
+  color: var(--button-text-color)
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited
+    --button-border-color: #{color.$blue-600}
+    --button-text-color: #{color.$blue-900}
+
+=medium
+  --background-color: #{color.$white}
+  --background-color-hover: linear-gradient(0deg, rgba(26, 115, 232, 0.04), rgba(26, 115, 232, 0.04)), #fff
+  --background-color-focus: linear-gradient(0deg, rgba(26, 115, 232, 0.12), rgba(26, 115, 232, 0.12)), #fff
+  --background-color-active: linear-gradient(0deg, rgba(26, 115, 232, 0.1), rgba(26, 115, 232, 0.1)), #fff
+  --background-color-disabled: #{color.$grey-50}
+  --box-shadow: 0 0 0 1px #{color.$grey-300}
+  --box-shadow-hover: 0 0 0 1px #{color.$blue-600}
+  --box-shadow-focus: 0 0 0 1px #{color.$blue-600}
+  --box-shadow-focus-accessible: 0 0 0 2px #{color.$blue-600}
+  --box-shadow-active: 0 0 0 1px #{color.$blue-600}
+  --box-shadow-disabled: 0 0 0 1px #{color.$grey-300}
+  --color: #{color.$blue-600}
+  --color-hover: #{color.$blue-900}
+  --color-focus: #{color.$blue-900}
+  --color-active: #{color.$blue-900}
+  --color-disabled: #{color.$grey-500}

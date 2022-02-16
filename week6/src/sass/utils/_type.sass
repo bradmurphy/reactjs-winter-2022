@@ -1,0 +1,295 @@
+@use 'color'
+@use 'breakpoints'
+
+// Load the fonts for this library with the following:
+//
+// Google Material:
+// <link href="https://fonts.googleapis.com/css?family=Google+Sans+Display:400|Google+Sans:400,500|Roboto:400,500" rel="stylesheet">
+//
+// Marketing Web Standards:
+// <link href="https://fonts.googleapis.com/css?family=Google+Sans+Display:400|Google+Sans+Text:400,500|Google+Sans:400,500" rel="stylesheet">
+
+// Font sizing and naming taken from
+// https://carbon.googleplex.com/google-material/pages/typography
+
+$font-family-display: 'Google Sans Display', 'Google Sans', 'Roboto', Arial, sans-serif
+$font-family-primary: 'Google Sans', 'Roboto', Arial, sans-serif
+$font-family-secondary: 'Google Sans Text', 'Roboto', Arial, sans-serif
+
+=display-1
+  font-family: $font-family-display
+  font-size: 64px
+  line-height: 76px
+
+=display-3
+  font-family: $font-family-display
+  font-size: 44px
+  line-height: 52px
+
+=variable-2
+  font-family: $font-family-primary
+  font-size: 8vw
+  line-height: 1.2em
+  +breakpoints.tablet-gt
+    font-size: 5vw
+    letter-spacing: -0.5px
+  +breakpoints.laptop-gt
+    font-size: 4vw
+
+=headline-1
+  color: color.$grey-900
+  font-family: $font-family-display
+  font-weight: 400
+  font-style: normal
+  font-size: 36px
+  line-height: 44px
+  letter-spacing: -.25px
+  +breakpoints.tablet-gt
+    font-size: 48px
+    line-height: 56px
+    letter-spacing: -.5px
+  +breakpoints.laptop-gt
+    font-size: 60px
+    line-height: 72px
+
+=headline-2
+  color: color.$grey-900
+  font-family: $font-family-display
+  font-weight: 400
+  font-style: normal
+  font-size: 28px
+  line-height: 36px
+  +breakpoints.tablet-gt
+    font-size: 40px
+    line-height: 48px
+    letter-spacing: -.5px
+  +breakpoints.laptop-gt
+    font-size: 48px
+    line-height: 56px
+
+=headline-3
+  color: color.$grey-900
+  font-family: $font-family-primary
+  font-size: 24px
+  line-height: 32px
+  font-weight: 400
+  font-style: normal
+  +breakpoints.tablet-gt
+    font-size: 32px
+    line-height: 40px
+    letter-spacing: -.25px
+  +breakpoints.laptop-gt
+    font-size: 36px
+    line-height: 44px
+
+=headline-4
+  color: color.$grey-900
+  font-family: $font-family-primary
+  font-weight: 400
+  font-style: normal
+  font-size: 20px
+  line-height: 28px
+  +breakpoints.tablet-gt
+    font-size: 24px
+    line-height: 32px
+  +breakpoints.laptop-gt
+    font-size: 28px
+    line-height: 36px
+
+=headline-5
+  color: color.$grey-900
+  font-family: $font-family-primary
+  font-size: 20px
+  line-height: 28px
+
+=headline-6
+  font-family: $font-family-secondary
+  font-weight: 500
+  font-size: 16px
+  line-height: 24px
+
+=headline-hero
+  font-family: $font-family-display
+  font-size: 32px
+  line-height: 42px
+  letter-spacing: -0.25px
+  text-align: center
+  +breakpoints.laptop-gt
+    text-align: left
+    +headline-1
+
+=subhead-1
+  font-family: $font-family-primary
+  font-size: 16px
+  font-weight: 500
+  letter-spacing: .1px
+  line-height: 24px
+
+=subhead-2
+  font-family: $font-family-primary
+  font-size: 14px
+  font-weight: 500
+  letter-spacing: .25px
+  line-height: 20px
+
+=subtitle-1
+  font-family: $font-family-secondary
+  font-size: 16px
+  font-weight: 500
+  letter-spacing: .2px
+  line-height: 24px
+
+=subtitle-2
+  font-family: $font-family-secondary
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: .25px
+  line-height: 20px
+
+=overline
+  font-family: $font-family-secondary
+  font-size: 11px
+  font-weight: 500
+  letter-spacing: .8px
+  line-height: 16px
+  text-transform: uppercase
+
+=overline-large
+  +overline
+  font-size: 14px
+  line-height: 24px
+  letter-spacing: .5px
+
+=cta
+  font-family: $font-family-primary
+  font-size: 16px
+  line-height: 24px
+  font-weight: 500
+
+=eyebrow
+  font-family: $font-family-secondary
+  font-size: 14px
+  line-height: 24px
+  font-weight: 500
+  letter-spacing: 0.5px
+
+=body-large
+  font-family: $font-family-primary
+  font-size: 18px
+  line-height: 28px
+
+=body
+  font-family: $font-family-secondary
+  font-size: 16px
+  font-weight: 400
+  line-height: 24px
+  letter-spacing: 0.1px
+
+=body-extra-small
+  font-family: $font-family-secondary
+  font-size: 12px
+  font-weight: 400
+  line-height: 24px
+
+=caption
+  font-family: $font-family-secondary
+  font-size: 14px
+  line-height: 24px
+  letter-spacing: 0.15px
+
+=supernav-head-1
+  font-family: $font-family-primary
+  font-weight: 500
+  font-size: 20px
+  line-height: 24px
+  color: color.$grey-900
+
+=supernav-text-1
+  font-family: $font-family-secondary
+  font-weight: 500
+  font-style: 15px
+  line-height: 23px
+  letter-spacing: 0.2px
+  color: color.$grey-900
+
+=supernav-text-2
+  font-family: $font-family-secondary
+  font-weight: 500
+  font-size: 14px
+  line-height: 20px
+  letter-spacing: 0.2px
+  color: color.$grey-900
+
+=card-headings-md
+  font-family: $font-family-primary
+  font-size: 28px
+  line-height: 36px
+  font-weight: 400
+
+=card-headings-sm
+  font-family: $font-family-primary
+  font-size: 24px
+  line-height: 32px
+  color: color.$grey-900
+
+=product-pill-caption
+  font-family: $font-family-primary
+  font-weight: 700
+  font-size: 14px
+  line-height: 24px
+  letter-spacing: 2px
+  color: color.$grey-900
+
+=pricing-headline-4-5
+  font-family: $font-family-primary
+  font-weight: 500
+  font-size: 22px
+  line-height: 28px
+  color: color.$grey-900
+
+=pricing-headline-numbers
+  font-family: $font-family-primary
+  font-weight: 600
+  font-size: 20px
+  line-height: 24px
+  letter-spacing: 0.1px
+  color: color.$grey-900
+
+=pricing-product-sku
+  font-family: $font-family-secondary
+  font-weight: 400
+  font-size: 16px
+  line-height: 24px
+  letter-spacing: 0.1px
+  text-decoration: underline
+  color: color.$grey-900
+
+=pricing-headline-numbers-small
+  font-family: $font-family-secondary
+  font-weight: 700
+  font-size: 16px
+  line-height: 24px
+  letter-spacing: 0.1px
+  color: color.$grey-900
+
+=pricing-body-medium
+  font-family: $font-family-secondary
+  font-weight: 500
+  font-family: 16px
+  line-height: 24px
+  letter-spacing: 0.1px
+  color: color.$grey-900
+
+=eyebrow-maps-1
+  font-family: $font-family-primary
+  font-size: 14px
+  line-height: 24px
+  letter-spacing: 2px
+  color: color.$grey-900
+
+=subnav-text-1
+  font-family: $font-family-primary
+  font-weight: 500
+  font-size: 22px
+  line-height: 32px
+  color: color.$grey-900

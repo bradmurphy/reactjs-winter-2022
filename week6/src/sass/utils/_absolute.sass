@@ -1,0 +1,57 @@
+=center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+=center-x
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+
+=center-y
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+
+=top-left($top: 0, $left: 0)
+  position: absolute
+  top: $top
+  left: $left
+
+=top-right($top: 0, $right: 0)
+  position: absolute
+  top: $top
+  right: $right
+
+=top-center($top: 0, $translateX: 0, $translateY: 0)
+  position: absolute
+  left: 50%
+  top: $top
+  +transform-center($translateX, $translateY)
+
+=bottom-left($bottom: 0, $left: 0)
+  position: absolute
+  bottom: $bottom
+  left: $left
+
+=bottom-right($bottom: 0, $right: 0)
+  position: absolute
+  bottom: $bottom
+  right: $right
+
+=bottom-center($bottom: 0, $translateX: 0, $translateY: 0)
+  +transform-center($translateX, $translateY)
+  position: absolute
+  bottom: $bottom
+  left: 50%
+
+=transform-center($translateX, $translateY)
+  @if not ($translateX == 0 and $translateY == 0)
+    transform: translateX(-50%) translateX($translateX) translateY($translateY)
+  @else if not ($translateX == 0)
+    transform: translateX(-50%) translateX($translateX)
+  @else if not ($translateY == 0)
+    transform: translateX(-50%) translateY($translateY)
+  @else
+    transform: translateX(-50%)

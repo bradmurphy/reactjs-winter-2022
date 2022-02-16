@@ -1,0 +1,14 @@
+@use 'sass:math'
+
+// Functions to convert any pixel value from a design file into its equivalent vw
+// based on the design file's default widths of 1440px for desktop and 320px for
+// mobile.
+// Examples:
+// font-size: vw-desktop(16)
+// margin: vw-mobile(20)
+
+@function desktop($value)
+  @return (math.div($value, 1440) * 100)+vw
+
+@function mobile($value)
+  @return (math.div($value,  320) * 100)+vw

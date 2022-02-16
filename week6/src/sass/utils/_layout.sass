@@ -1,0 +1,53 @@
+@use 'breakpoints'
+
+$layout-horizontal-padding-mobile: 24px
+$layout-horizontal-padding-tablet: min(5vw, 72px)
+$layout-horizontal-padding-laptop: min(5vw, 72px)
+$layout-horizontal-padding-desktop: min(5vw, 72px)
+
+$layout-max-width-mobile: 600px
+$layout-max-width-desktop: 1440px
+$layout-absolute-max-width-desktop: 2560px
+
+=container
+  margin: 0 auto
+  +breakpoints.mobile
+    padding: 0 $layout-horizontal-padding-mobile
+    max-width: $layout-max-width-mobile
+  +breakpoints.tablet
+    padding: 0 $layout-horizontal-padding-tablet
+    max-width: $layout-max-width-mobile
+  +breakpoints.laptop
+    padding: 0 $layout-horizontal-padding-laptop
+  +breakpoints.desktop
+    padding: 0 $layout-horizontal-padding-desktop
+    max-width: $layout-max-width-desktop
+
+=fullbleed-container
+  +container
+  padding: 0 !important
+  max-width: $layout-absolute-max-width-desktop !important
+
+=header-container
+  +container
+  max-width: $layout-absolute-max-width-desktop !important
+  padding: 0 15px !important
+
+=section-small
+  padding: 20px 0
+
+=section-medium
+  padding: 60px 0
+
+=section-large
+  padding: 60px 0
+  +breakpoints.laptop-gt
+    padding: 100px 0
+
+=size($width, $height: false)
+  @if $width and $height
+    width: $width
+    height: $height
+  @else
+    width: $width
+    height: $width

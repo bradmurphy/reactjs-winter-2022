@@ -1,0 +1,53 @@
+@use 'carousel'
+@use 'utils/breakpoints'
+@use 'utils/color'
+@use 'utils/flex'
+@use 'utils/grid'
+  
+body
+  background-color: color.$white
+
+.wrap
+  +grid.container
+
+.nav 
+  +grid.range(1, 12)
+  +flex.center
+  list-style: none
+  li
+    a
+      color: color.$grey-600
+    &:not(last-child)
+      margin-right: 20px
+
+.sidebar
+  background: color.$grey-900
+  position: fixed
+  width: 280px
+  height: 100%
+  overflow: auto
+  top: 0
+  left: -280px
+  transition: all .3s ease-in
+  &--open
+    left: 0
+  +breakpoints.tablet-gt
+    display: none
+
+.mobile-nav
+  +flex.column
+  list-style: none
+  li a 
+    color: color.$blue-600
+
+.button
+  -webkit-appearance: none
+  position: fixed
+  top: 25px
+  right: 25px
+  +breakpoints.tablet-gt
+    display: none
+
+.item
+  +flex.column
+  +flex.center

@@ -1,0 +1,76 @@
+@use 'utils/absolute'
+@use 'utils/breakpoints'
+@use 'utils/carousel'
+@use 'utils/color'
+@use 'utils/flex'
+@use 'utils/grid'
+@use 'utils/layout'
+@use 'utils/type'
+
+.carousel__container
+  +grid.range(1, 4)
+  +breakpoints.laptop-gt
+    +grid.range(1, 12)
+
+.carousel
+  +layout.section-large
+  +flex.center
+  width: 100%
+  position: relative
+  overflow: hidden
+  +breakpoints.tablet-lt
+    padding-bottom: 0
+  +breakpoints.laptop-gt
+    min-height: 600px
+  +breakpoints.desktop-gt
+    min-height: 675px
+
+.carousel__slides
+  +carousel.container
+
+.carousel__slides__slide
+  +carousel.slide
+  img
+    object-fit: cover
+    height: 100%
+    width: 100%
+  +breakpoints.laptop-gt
+    +flex.center
+    padding: 0 60px
+
+.carousel__controls
+  +absolute.top-left
+  +layout.size(100%)
+  pointer-events: none
+
+.carousel__controls__dots
+  +carousel.controls($element: ".carousel__controls__dots", $type: "dots")
+  +absolute.bottom-center(30px)
+  pointer-events: all
+  +breakpoints.laptop-gt
+    bottom: 60px
+
+.carousel__controls__arrows
+  +carousel.controls($element: ".carousel__controls__arrows", $type: "arrows")
+  display: none
+  padding: 0 30px
+  +breakpoints.tablet-gt
+    display: block
+
+.carousel__controls__arrows__arrow
+  +absolute.center-y
+  pointer-events: all
+  z-index: 3
+  &--left
+    left: 10px
+    +breakpoints.laptop-gt
+      left: 30px
+  &--right
+    right: 10px
+    +breakpoints.laptop-gt
+      right: 30px
+
+.carousel__slides__slide__container
+  +grid.container
+  align-items: center
+  grid-row-gap: 30px
