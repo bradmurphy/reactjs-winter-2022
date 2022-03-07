@@ -1,12 +1,11 @@
 import React, {useContext} from 'react';
 import { Context } from '../store/store';
+import ShortUniqueId from 'short-unique-id';
+import { addItemToCart } from '../utilities';
 
 export default function Shop() {
     const [ state, dispatch ] = useContext(Context);
-
-    // console.log(state.products);
-
-    const addItemToCart = (item) => dispatch({ type: 'ADD_ITEM' , payload: item});
+    const uid = new ShortUniqueId({length: 10});
 
     return (
         <div className="wrap">
@@ -19,7 +18,7 @@ export default function Shop() {
                         <h4>{product.title}</h4>
                         <p>{product.desc}</p>
                         <strong>Price: {product.price}</strong>
-                        <button onClick={() => addItemToCart(product)}>Add to Cart</button>
+                        <button onClick={() => addItemToCart(product, state, dispatch, uid)}>Add to Cart</button>
                     </div>
                 )
             })}
